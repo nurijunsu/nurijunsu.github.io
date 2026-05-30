@@ -3,16 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Junsu Kim</title>
-  <meta name="description" content="Junsu Kim, researcher on reasoning models and the consequences of intelligence. Former student researcher at Google DeepMind." />
-
-  <!-- Open Graph / link previews -->
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="Junsu Kim" />
-  <meta property="og:description" content="Researcher on reasoning models and the consequences of intelligence. Former student researcher at Google DeepMind." />
-  <meta property="og:image" content="https://junsukim.com/assets/profile.jpg" />
-  <meta property="og:url" content="https://junsukim.com/" />
-  <meta name="twitter:card" content="summary" />
+  <title>Palette preview — Junsu Kim</title>
+  <meta name="robots" content="noindex" />
 
   <link rel="icon" href="data:," />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -20,26 +12,20 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Roboto+Mono:wght@400;500&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 
-  <!-- Set theme before first paint to avoid a flash -->
-  <script>
-    (function () {
-      try {
-        var saved = localStorage.getItem("theme");
-        if (saved === "light" || saved === "dark") {
-          document.documentElement.setAttribute("data-theme", saved);
-        }
-      } catch (e) {}
-    })();
-  </script>
+  <style>
+    #palette-bar{position:sticky;top:0;z-index:50;display:flex;flex-wrap:wrap;gap:8px;align-items:center;
+      padding:12px 16px;margin:0 0 28px;border-bottom:1px solid var(--rule);background:var(--surface);
+      font-family:var(--sans);font-size:13px;}
+    #palette-bar strong{font-weight:600;color:var(--ink);margin-right:4px;}
+    #palette-bar .sep{flex:1;}
+    #palette-bar .lbl{color:var(--muted);margin-right:8px;font-style:italic;}
+    #palette-bar button{font:inherit;cursor:pointer;border:1px solid var(--surface-border);
+      background:var(--bg);color:var(--ink-soft);padding:6px 12px;border-radius:8px;}
+    #palette-bar button.active{border-color:var(--link);color:var(--link);font-weight:600;}
+  </style>
 </head>
 <body>
   <main class="page">
-
-    <!-- ===== Theme toggle (page corner) ===== -->
-    <button id="theme-toggle" type="button" aria-label="Toggle dark mode" title="Toggle dark mode">
-      <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
-      <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-    </button>
 
     <!-- ===== Hero: photo + name | links ===== -->
     <section class="hero">
@@ -176,41 +162,83 @@
 
   <script>
     (function () {
-      var btn = document.getElementById("theme-toggle");
+      // ===== Palette candidates: injected as INLINE vars on <html> (always win) =====
+      var P = {
+        paper: { name: "Warm Paper",
+          light: {bg:"#f8f7f3",ink:"#2c2b27","ink-soft":"#5f5e58",muted:"#84827a",rule:"#e7e3da",surface:"#f1efe8","surface-border":"#e3dfd5",link:"#2563d9",btn:"#2563d9","x-icon-invert":"0"},
+          dark:  {bg:"#1c1d21",ink:"#e7e5df","ink-soft":"#b1afa7",muted:"#908e86",rule:"#34353b",surface:"#26272c","surface-border":"#3a3c43",link:"#7fb0ff",btn:"#3b7de8","x-icon-invert":"1"} },
+        cool: { name: "Cool Gray",
+          light: {bg:"#fbfbfc",ink:"#202225","ink-soft":"#565a61",muted:"#80858d",rule:"#e6e8ec",surface:"#f3f4f6","surface-border":"#e2e4e9",link:"#2f6fed",btn:"#2f6fed","x-icon-invert":"0"},
+          dark:  {bg:"#16181c",ink:"#e8eaed","ink-soft":"#aeb2b9",muted:"#888d95",rule:"#2c2f36",surface:"#202329","surface-border":"#343842",link:"#79a9ff",btn:"#3f7ae6","x-icon-invert":"1"} },
+        slate: { name: "Slate Blue",
+          light: {bg:"#f6f8fa",ink:"#1f2733","ink-soft":"#4f5b6b",muted:"#7c8896",rule:"#e1e7ee",surface:"#eef2f6","surface-border":"#dde4ec",link:"#3066d6",btn:"#3066d6","x-icon-invert":"0"},
+          dark:  {bg:"#141823",ink:"#e6e9f0","ink-soft":"#a8b0bf",muted:"#828b9c",rule:"#28303f",surface:"#1d2330","surface-border":"#323b4d",link:"#84acff",btn:"#3e74e6","x-icon-invert":"1"} },
+        sage: { name: "Sage",
+          light: {bg:"#f7f8f5",ink:"#272a25","ink-soft":"#565a51",muted:"#828777",rule:"#e3e7dd",surface:"#eef1ea","surface-border":"#dfe4d8",link:"#3a7d52",btn:"#3a7d52","x-icon-invert":"0"},
+          dark:  {bg:"#181a17",ink:"#e6e8e1","ink-soft":"#aeb2a7",muted:"#878b7f",rule:"#2c2f29",surface:"#21241f","surface-border":"#363a32",link:"#86c79b",btn:"#4f9469","x-icon-invert":"1"} },
+        neutral: { name: "Pure Neutral",
+          light: {bg:"#fbfbfb",ink:"#232323","ink-soft":"#5a5a5a",muted:"#848484",rule:"#e7e7e7",surface:"#f2f2f2","surface-border":"#e2e2e2",link:"#3b62d6",btn:"#3b62d6","x-icon-invert":"0"},
+          dark:  {bg:"#191919",ink:"#e8e8e8","ink-soft":"#b0b0b0",muted:"#8a8a8a",rule:"#2e2e2e",surface:"#232323","surface-border":"#383838",link:"#80a8ff",btn:"#3f7ae6","x-icon-invert":"1"} }
+      };
+      var ORDER = ["paper","cool","slate","sage","neutral"];
       var root = document.documentElement;
-      function current() {
-        var attr = root.getAttribute("data-theme");
-        if (attr) return attr;
-        return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-      }
-      btn.addEventListener("click", function () {
-        var next = current() === "dark" ? "light" : "dark";
-        root.setAttribute("data-theme", next);
-        try { localStorage.setItem("theme", next); } catch (e) {}
-      });
+      var state = { pal: "paper", mode: "light" };
+      try {
+        state.pal = localStorage.getItem("preview-palette") || "paper";
+        state.mode = localStorage.getItem("preview-mode") || "light";
+      } catch (e) {}
+      if (!P[state.pal]) state.pal = "paper";
+      if (state.mode !== "dark") state.mode = "light";
 
-      // Author lists: show INITIALS by default, clamped to 2 lines (so it
-      // stays short while the full set of names is still represented). Junsu's
-      // name is underlined. Toggle reveals the full names.
+      function apply() {
+        var v = P[state.pal][state.mode];
+        for (var k in v) root.style.setProperty("--" + k, v[k]);
+        root.style.colorScheme = state.mode;
+        document.querySelectorAll("[data-pal]").forEach(function (b) {
+          b.classList.toggle("active", b.dataset.pal === state.pal);
+        });
+        document.querySelectorAll("[data-modebtn]").forEach(function (b) {
+          b.classList.toggle("active", b.dataset.modebtn === state.mode);
+        });
+        var lbl = document.getElementById("pal-label");
+        if (lbl) lbl.textContent = P[state.pal].name + " · " + state.mode;
+      }
+
+      var bar = document.createElement("div");
+      bar.id = "palette-bar";
+      bar.innerHTML = "<strong>Palette</strong>" +
+        ORDER.map(function (k) { return '<button data-pal="' + k + '">' + P[k].name + "</button>"; }).join("") +
+        '<span class="sep"></span><span id="pal-label" class="lbl"></span>' +
+        '<button data-modebtn="light">☀ Light</button>' +
+        '<button data-modebtn="dark">☾ Dark</button>';
+      document.body.insertBefore(bar, document.body.firstChild);
+
+      bar.addEventListener("click", function (e) {
+        var b = e.target.closest("button"); if (!b) return;
+        if (b.dataset.pal) state.pal = b.dataset.pal;
+        else if (b.dataset.modebtn) state.mode = b.dataset.modebtn;
+        try {
+          localStorage.setItem("preview-palette", state.pal);
+          localStorage.setItem("preview-mode", state.mode);
+        } catch (e) {}
+        apply();
+      });
+      apply();
+
+      // ===== Author lists: initials, Junsu underlined =====
       function initialize(raw) {
         var n = raw.replace(/[*†◊\\]/g, "").replace(/\([^)]*\)/g, "").trim();
-        n = n.replace(/\.+$/, ""); // drop trailing period
+        n = n.replace(/\.+$/, "");
         var parts = n.split(/\s+/).filter(Boolean);
         if (parts.length <= 1) return n;
         var last = parts.pop();
-        return parts.map(function (p) { return p.charAt(0).toUpperCase() + "."; })
-                    .join(" ") + " " + last;
+        return parts.map(function (p) { return p.charAt(0).toUpperCase() + "."; }).join(" ") + " " + last;
       }
       document.querySelectorAll(".entry-authors").forEach(function (el) {
-        var pin = el.querySelector("u");
-        if (!pin) return;
-        var pinFull = pin.textContent.trim(); // e.g. "Junsu Kim"
-
-        var authors = el.textContent.split(/,|\sand\s/)
-                        .map(function (s) { return s.trim(); }).filter(Boolean);
-        if (authors.length <= 4) return; // short lists: leave full names
-
-        // Match the pinned author by FULL name (so "Jimin Kim" != "Junsu Kim").
+        var pin = el.querySelector("u"); if (!pin) return;
+        var pinFull = pin.textContent.trim();
+        var authors = el.textContent.split(/,|\sand\s/).map(function (s) { return s.trim(); }).filter(Boolean);
+        if (authors.length <= 4) return;
         var pinIdx = -1;
         for (var i = 0; i < authors.length; i++) {
           if (authors[i].replace(/[*†◊\\]/g, "").trim() === pinFull) { pinIdx = i; break; }
@@ -220,40 +248,6 @@
           return i === pinIdx ? "<u>" + ini + "</u>" : ini;
         }).join(", ");
       });
-    })();
-  </script>
-
-  <script>
-    (function () {
-      var root = document.documentElement;
-      var bar = document.getElementById("palette-bar");
-      // hide the page-corner toggle in preview; the bar controls mode
-      var corner = document.getElementById("theme-toggle");
-      if (corner) corner.style.display = "none";
-
-      function sync() {
-        var p = root.getAttribute("data-palette");
-        var m = root.getAttribute("data-mode");
-        bar.querySelectorAll("[data-pal]").forEach(function (b) {
-          b.classList.toggle("active", b.getAttribute("data-pal") === p);
-        });
-        bar.querySelectorAll("[data-modebtn]").forEach(function (b) {
-          b.classList.toggle("active", b.getAttribute("data-modebtn") === m);
-        });
-      }
-      bar.addEventListener("click", function (e) {
-        var b = e.target.closest("button");
-        if (!b) return;
-        if (b.dataset.pal) {
-          root.setAttribute("data-palette", b.dataset.pal);
-          try { localStorage.setItem("preview-palette", b.dataset.pal); } catch (e) {}
-        } else if (b.dataset.modebtn) {
-          root.setAttribute("data-mode", b.dataset.modebtn);
-          try { localStorage.setItem("preview-mode", b.dataset.modebtn); } catch (e) {}
-        }
-        sync();
-      });
-      sync();
     })();
   </script>
 </body>
