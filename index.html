@@ -189,35 +189,36 @@
         try { localStorage.setItem("theme", next); } catch (e) {}
       });
 
-      // Author lists: when long, collapse to "first author … Junsu Kim … "
-      // so the pinned name is always visible. Click to expand to the full list.
+      // Author lists: show INITIALS by default, clamped to 2 lines (so it
+      // stays short while the full set of names is still represented). Junsu's
+      // name is underlined. Toggle reveals the full names.
+      function initialize(raw) {
+        var n = raw.replace(/[*†◊\\]/g, "").replace(/\([^)]*\)/g, "").trim();
+        n = n.replace(/\.+$/, ""); // drop trailing period
+        var parts = n.split(/\s+/).filter(Boolean);
+        if (parts.length <= 1) return n;
+        var last = parts.pop();
+        return parts.map(function (p) { return p.charAt(0).toUpperCase() + "."; })
+                    .join(" ") + " " + last;
+      }
       document.querySelectorAll(".entry-authors").forEach(function (el) {
-        var fullHTML = el.innerHTML;
         var pin = el.querySelector("u");
         if (!pin) return;
+        var pinFull = pin.textContent.trim(); // e.g. "Junsu Kim"
 
-        // Count authors (rough: comma-separated, "and X" counts as one).
-        var plain = el.textContent.replace(/\band\b/g, ",");
-        var total = plain.split(",").map(function (s) { return s.trim(); })
-                         .filter(Boolean).length;
-        if (total <= 6) return; // short lists: leave as-is
+        var authors = el.textContent.split(/,|\sand\s/)
+                        .map(function (s) { return s.trim(); }).filter(Boolean);
+        if (authors.length <= 4) return; // short lists: leave full names
 
-        var first = el.textContent.split(",")[0].trim();
-        var pinName = pin.textContent.trim();
-        var collapsedHTML = first + ", &hellip; <u>" + pinName + "</u> &hellip;";
-
-        var btn = document.createElement("button");
-        btn.type = "button";
-        btn.className = "authors-toggle";
-
-        var expanded = false;
-        function render() {
-          el.innerHTML = expanded ? fullHTML : collapsedHTML;
-          btn.textContent = expanded ? "show fewer" : "show all " + total + " authors";
+        // Match the pinned author by FULL name (so "Jimin Kim" != "Junsu Kim").
+        var pinIdx = -1;
+        for (var i = 0; i < authors.length; i++) {
+          if (authors[i].replace(/[*†◊\\]/g, "").trim() === pinFull) { pinIdx = i; break; }
         }
-        btn.addEventListener("click", function () { expanded = !expanded; render(); });
-        render();
-        el.insertAdjacentElement("afterend", btn);
+        el.innerHTML = authors.map(function (a, i) {
+          var ini = initialize(a);
+          return i === pinIdx ? "<u>" + ini + "</u>" : ini;
+        }).join(", ");
       });
     })();
   </script>

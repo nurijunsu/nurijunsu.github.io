@@ -75,25 +75,35 @@ body {
 a { color: var(--link); text-decoration: none; }
 a:hover { text-decoration: underline; }
 
-/* ===== Profile links (top-right of hero) ===== */
+/* ===== Profile links (chips, top-right of hero) ===== */
 .toplinks {
   margin-left: auto;
-  align-self: flex-start;
+  align-self: center;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  gap: 10px;
+  align-items: stretch;
+  gap: 8px;
 }
 .toplinks a {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 9px;
+  padding: 7px 13px;
+  border: 1px solid var(--surface-border);
+  border-radius: 9px;
+  background: var(--surface);
   color: var(--ink-soft);
   font-family: var(--sans);
-  font-size: 14px;
+  font-size: 13.5px;
   font-weight: 500;
+  transition: color 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
 }
-.toplinks a:hover { color: var(--link); text-decoration: none; }
+.toplinks a:hover {
+  color: var(--ink);
+  border-color: var(--ink-soft);
+  text-decoration: none;
+  transform: translateX(-2px);
+}
 .toplinks .ico-img { width: 18px; height: 18px; display: block; flex: none; }
 .toplinks a:first-child .ico-img { color: var(--ink-soft); }
 .toplinks a:first-child:hover .ico-img { color: var(--link); }
@@ -230,6 +240,12 @@ a:hover { text-decoration: underline; }
   font-size: 14px;
   color: var(--ink-soft);
   line-height: 1.55;
+}
+.entry-authors.clamp2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 .entry-authors u { text-decoration: underline; font-weight: 700; color: var(--ink); }
 .authors-toggle {
