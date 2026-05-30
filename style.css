@@ -137,6 +137,11 @@ a:hover { text-decoration: underline; }
   color: var(--ink);
 }
 .hero-bio p:last-child { margin-bottom: 0; }
+.hero-bio .contact {
+  margin-top: 18px;
+  font-size: 14px;
+  color: var(--ink-soft);
+}
 
 /* ===== Section headings ===== */
 .section-title {
