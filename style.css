@@ -296,13 +296,12 @@ a:hover { text-decoration: underline; }
 @media (max-width: 720px) {
   .page { padding: 36px 20px 72px; }
   .hero-head h1 { font-size: 30px; }
-  .hero { gap: 20px; }
-  .hero-photo img { width: 104px; }
+  .hero { gap: 22px; }
+  .hero-photo img { width: 132px; }
   .entry {
     grid-template-columns: 1fr;
     gap: 14px;
   }
   .entry-thumb { aspect-ratio: 16 / 9; max-height: 220px; }
-  .toplinks { gap: 16px 20px; }
   .section-title { font-size: 24px; }
 }
