@@ -1,16 +1,16 @@
 /* ===== Base — clean, centered, system-sans (Notion-adjacent, more confident) ===== */
 :root {
-  --ink: #2f2e2b;            /* primary text */
-  --ink-soft: #5f5e58;       /* secondary text — AA on white */
-  --muted: #787770;          /* tertiary — AA-compliant small text */
+  --ink: #2c2b27;            /* primary text */
+  --ink-soft: #5f5e58;       /* secondary text — AA on bg */
+  --muted: #84827a;          /* tertiary — AA-compliant small text */
   --link: #2563d9;           /* accent blue */
   --btn: #2563d9;            /* CTA button bg — AA with white text */
   --sans: "Inter", ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
-  --rule: #e6e5e1;
-  --bg: #ffffff;
-  --surface: #fafaf9;        /* cards / thumbnails / toggle */
-  --surface-border: #e2e1dc;
-  --thumb-shadow: rgba(15, 15, 15, 0.12);
+  --rule: #e7e3da;
+  --bg: #f8f7f3;             /* warm off-white (paper), not pitch white */
+  --surface: #f1efe8;        /* cards / thumbnails / toggle */
+  --surface-border: #e3dfd5;
+  --thumb-shadow: rgba(40, 35, 25, 0.10);
   --x-icon-invert: 0;
   --max: 860px;
   color-scheme: light;
@@ -19,16 +19,16 @@
 /* Dark palette — system preference, unless toggle forced light. */
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --ink: #ededea;
-    --ink-soft: #b3b2ab;
-    --muted: #9a988f;
-    --link: #6ea8ff;
+    --ink: #e7e5df;
+    --ink-soft: #b1afa7;
+    --muted: #908e86;
+    --link: #7fb0ff;
     --btn: #3b7de8;
-    --rule: #2e2e31;
-    --bg: #191919;
-    --surface: #232325;
-    --surface-border: #3a3a3e;
-    --thumb-shadow: rgba(0, 0, 0, 0.5);
+    --rule: #34353b;
+    --bg: #1c1d21;
+    --surface: #26272c;
+    --surface-border: #3a3c43;
+    --thumb-shadow: rgba(0, 0, 0, 0.45);
     --x-icon-invert: 1;
     color-scheme: dark;
   }
