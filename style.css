@@ -72,13 +72,13 @@ body {
 a { color: var(--link); text-decoration: none; }
 a:hover { text-decoration: underline; }
 
-/* ===== Profile links (under photo) ===== */
+/* ===== Profile links (horizontal row under hero) ===== */
 .toplinks {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 8px;
-  margin-top: 16px;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px 26px;
+  margin-bottom: 56px;
 }
 .toplinks a {
   display: inline-flex;
@@ -133,8 +133,6 @@ a:hover { text-decoration: underline; }
 }
 .hero-photo {
   flex: none;
-  display: flex;
-  flex-direction: column;
 }
 .hero-photo img {
   width: 168px;
