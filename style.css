@@ -4,6 +4,8 @@
   --ink-soft: #5f5e58;       /* secondary text — AA on white */
   --muted: #787770;          /* tertiary — AA-compliant small text */
   --link: #2563d9;           /* accent blue */
+  --btn: #2563d9;            /* CTA button bg — AA with white text */
+  --sans: "Inter", ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
   --rule: #e6e5e1;
   --bg: #ffffff;
   --surface: #fafaf9;        /* cards / thumbnails / toggle */
@@ -21,6 +23,7 @@
     --ink-soft: #b3b2ab;
     --muted: #9a988f;
     --link: #6ea8ff;
+    --btn: #3b7de8;
     --rule: #2e2e31;
     --bg: #191919;
     --surface: #232325;
@@ -37,6 +40,7 @@
   --ink-soft: #b3b2ab;
   --muted: #9a988f;
   --link: #6ea8ff;
+  --btn: #3b7de8;
   --rule: #2e2e31;
   --bg: #191919;
   --surface: #232325;
@@ -84,7 +88,8 @@ a:hover { text-decoration: underline; }
   align-items: center;
   gap: 8px;
   color: var(--ink-soft);
-  font-size: 14.5px;
+  font-family: var(--sans);
+  font-size: 14px;
   font-weight: 500;
 }
 .toplinks a:hover { color: var(--link); text-decoration: none; }
@@ -126,7 +131,7 @@ a:hover { text-decoration: underline; }
 /* ===== Hero: photo + links | name ===== */
 .hero {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: 36px;
   margin-bottom: 40px;
 }
@@ -140,11 +145,10 @@ a:hover { text-decoration: underline; }
   border-radius: 16px;
   display: block;
 }
-.hero-head { padding-top: 8px; }
 .hero-head h1 {
   font-size: 42px;
   font-weight: 700;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.015em;
   line-height: 1.1;
   margin: 0 0 10px;
 }
@@ -154,11 +158,11 @@ a:hover { text-decoration: underline; }
   font-size: 14px;
   color: var(--ink-soft);
   font-weight: 400;
-  letter-spacing: -0.01em;
 }
 
 /* ===== Bio ===== */
 .hero-bio {
+  max-width: 68ch;
   margin-bottom: 64px;
 }
 .hero-bio p {
@@ -172,7 +176,7 @@ a:hover { text-decoration: underline; }
   font-size: 28px;
   font-weight: 700;
   margin: 0 0 12px;
-  letter-spacing: -0.02em;
+  letter-spacing: 0;
 }
 .rule {
   border: none;
@@ -219,7 +223,7 @@ a:hover { text-decoration: underline; }
   font-size: 18px;
   font-weight: 600;
   color: var(--ink);
-  line-height: 1.4;
+  line-height: 1.5;
   margin-bottom: 8px;
 }
 .entry-title:hover { color: var(--link); text-decoration: none; }
@@ -242,8 +246,9 @@ a:hover { text-decoration: underline; }
   padding: 0;
   border: none;
   background: none;
-  font: inherit;
-  font-size: 12.5px;
+  font-family: var(--sans);
+  font-size: 12px;
+  font-weight: 500;
   color: var(--link);
   cursor: pointer;
 }
@@ -269,10 +274,12 @@ a:hover { text-decoration: underline; }
   display: inline-block;
   padding: 12px 22px;
   border-radius: 10px;
-  background: var(--link);
+  background: var(--btn);
   color: #fff;
+  font-family: var(--sans);
   font-weight: 600;
   font-size: 15px;
+  letter-spacing: 0.01em;
   transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.15s ease;
   box-shadow: 0 2px 10px rgba(37, 99, 217, 0.25);
 }
