@@ -1,16 +1,16 @@
 /* ===== Base — clean, centered, system-sans (Notion-adjacent, more confident) ===== */
 :root {
-  --ink: #2c2b27;            /* primary text */
-  --ink-soft: #5f5e58;       /* secondary text — AA on bg */
-  --muted: #84827a;          /* tertiary — AA-compliant small text */
-  --link: #2563d9;           /* accent blue */
-  --btn: #2563d9;            /* CTA button bg — AA with white text */
+  --ink: #272a25;            /* primary text */
+  --ink-soft: #565a51;       /* secondary text — AA on bg */
+  --muted: #828777;          /* tertiary — AA-compliant small text */
+  --link: #3a7d52;           /* accent (sage green) */
+  --btn: #3a7d52;            /* CTA button bg — AA with white text */
   --sans: "Inter", ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
-  --rule: #e7e3da;
-  --bg: #f8f7f3;             /* warm off-white (paper), not pitch white */
-  --surface: #f1efe8;        /* cards / thumbnails / toggle */
-  --surface-border: #e3dfd5;
-  --thumb-shadow: rgba(40, 35, 25, 0.10);
+  --rule: #e3e7dd;
+  --bg: #f7f8f5;             /* faint green-tinted off-white (sage) */
+  --surface: #eef1ea;        /* cards / thumbnails / toggle */
+  --surface-border: #dfe4d8;
+  --thumb-shadow: rgba(30, 40, 25, 0.10);
   --x-icon-invert: 0;
   --max: 860px;
   color-scheme: light;
@@ -19,15 +19,15 @@
 /* Dark palette — system preference, unless toggle forced light. */
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --ink: #e7e5df;
-    --ink-soft: #b1afa7;
-    --muted: #908e86;
-    --link: #7fb0ff;
-    --btn: #3b7de8;
-    --rule: #34353b;
-    --bg: #1c1d21;
-    --surface: #26272c;
-    --surface-border: #3a3c43;
+    --ink: #e6e8e1;
+    --ink-soft: #aeb2a7;
+    --muted: #878b7f;
+    --link: #86c79b;
+    --btn: #4f9469;
+    --rule: #2c2f29;
+    --bg: #181a17;
+    --surface: #21241f;
+    --surface-border: #363a32;
     --thumb-shadow: rgba(0, 0, 0, 0.45);
     --x-icon-invert: 1;
     color-scheme: dark;
@@ -36,15 +36,15 @@
 
 /* Manual override via the toggle (wins over system). */
 :root[data-theme="dark"] {
-  --ink: #e7e5df;
-  --ink-soft: #b1afa7;
-  --muted: #908e86;
-  --link: #7fb0ff;
-  --btn: #3b7de8;
-  --rule: #34353b;
-  --bg: #1c1d21;
-  --surface: #26272c;
-  --surface-border: #3a3c43;
+  --ink: #e6e8e1;
+  --ink-soft: #aeb2a7;
+  --muted: #878b7f;
+  --link: #86c79b;
+  --btn: #4f9469;
+  --rule: #2c2f29;
+  --bg: #181a17;
+  --surface: #21241f;
+  --surface-border: #363a32;
   --thumb-shadow: rgba(0, 0, 0, 0.45);
   --x-icon-invert: 1;
   color-scheme: dark;
@@ -52,16 +52,16 @@
 
 /* Manual override: force light even if the OS prefers dark. */
 :root[data-theme="light"] {
-  --ink: #2c2b27;
-  --ink-soft: #5f5e58;
-  --muted: #84827a;
-  --link: #2563d9;
-  --btn: #2563d9;
-  --rule: #e7e3da;
-  --bg: #f8f7f3;
-  --surface: #f1efe8;
-  --surface-border: #e3dfd5;
-  --thumb-shadow: rgba(40, 35, 25, 0.10);
+  --ink: #272a25;
+  --ink-soft: #565a51;
+  --muted: #828777;
+  --link: #3a7d52;
+  --btn: #3a7d52;
+  --rule: #e3e7dd;
+  --bg: #f7f8f5;
+  --surface: #eef1ea;
+  --surface-border: #dfe4d8;
+  --thumb-shadow: rgba(30, 40, 25, 0.10);
   --x-icon-invert: 0;
   color-scheme: light;
 }
@@ -104,21 +104,15 @@ a:hover { text-decoration: underline; }
   display: inline-flex;
   align-items: center;
   gap: 9px;
-  padding: 7px 13px;
-  border: 1px solid var(--surface-border);
-  border-radius: 9px;
-  background: var(--surface);
   color: var(--ink-soft);
   font-family: var(--sans);
-  font-size: 13.5px;
+  font-size: 14px;
   font-weight: 500;
-  transition: color 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
+  transition: color 0.15s ease;
 }
 .toplinks a:hover {
-  color: var(--ink);
-  border-color: var(--ink-soft);
+  color: var(--link);
   text-decoration: none;
-  transform: translateX(-2px);
 }
 .toplinks .ico-img { width: 18px; height: 18px; display: block; flex: none; }
 .toplinks a:first-child .ico-img { color: var(--ink-soft); }
