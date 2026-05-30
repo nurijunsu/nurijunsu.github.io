@@ -74,10 +74,12 @@ a:hover { text-decoration: underline; }
 
 /* ===== Top links + inline theme toggle ===== */
 .toplinks {
+  position: relative;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 24px;
+  justify-content: center;
+  gap: 24px 28px;
   margin-bottom: 48px;
 }
 .toplinks a {
@@ -96,7 +98,10 @@ a:hover { text-decoration: underline; }
 .toplinks .ico-x { filter: invert(var(--x-icon-invert)); }
 
 #theme-toggle {
-  margin-left: auto;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
   width: 38px;
   height: 38px;
   display: inline-flex;
@@ -121,49 +126,43 @@ a:hover { text-decoration: underline; }
   :root:not([data-theme="light"]) #theme-toggle .icon-moon { display: none; }
 }
 
-/* ===== Name + tagline ===== */
-.intro { margin-bottom: 32px; }
-.intro h1 {
+/* ===== Hero: photo beside name ===== */
+.hero {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  margin-bottom: 36px;
+}
+.hero-photo img {
+  width: 132px;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 16px;
+  display: block;
+}
+.hero-head h1 {
   font-size: 40px;
   font-weight: 800;
   letter-spacing: -0.025em;
   line-height: 1.1;
   margin: 0 0 8px;
 }
-.intro .tagline {
+.hero-head .tagline {
   margin: 0;
   font-size: 16px;
   color: var(--ink-soft);
   font-weight: 500;
 }
 
-/* ===== Hero ===== */
-.hero {
-  display: grid;
-  grid-template-columns: 200px 1fr;
-  gap: 40px;
-  align-items: start;
+/* ===== Bio ===== */
+.hero-bio {
   margin-bottom: 64px;
-}
-.hero-photo img {
-  width: 200px;
-  aspect-ratio: 1 / 1;
-  object-fit: cover;
-  border-radius: 14px;
-  display: block;
 }
 .hero-bio p {
   margin: 0 0 16px;
   color: var(--ink);
 }
 .hero-bio p:last-child { margin-bottom: 0; }
-.hero-bio .contact {
-  margin-top: 20px;
-  padding-top: 16px;
-  border-top: 1px solid var(--rule);
-  font-size: 15px;
-  color: var(--ink-soft);
-}
 
 /* ===== Section headings ===== */
 .section-title {
@@ -292,12 +291,9 @@ a:hover { text-decoration: underline; }
 /* ===== Responsive ===== */
 @media (max-width: 720px) {
   .page { padding: 36px 20px 72px; }
-  .intro h1 { font-size: 32px; }
-  .hero {
-    grid-template-columns: 1fr;
-    gap: 24px;
-  }
-  .hero-photo img { width: 150px; }
+  .hero-head h1 { font-size: 30px; }
+  .hero { gap: 20px; }
+  .hero-photo img { width: 104px; }
   .entry {
     grid-template-columns: 1fr;
     gap: 14px;
