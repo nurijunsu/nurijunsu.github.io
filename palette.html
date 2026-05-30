@@ -192,8 +192,11 @@
 
       function apply() {
         var v = P[state.pal][state.mode];
-        for (var k in v) root.style.setProperty("--" + k, v[k]);
+        // use !important so these win over style.css :root[data-theme]/@media rules
+        for (var k in v) root.style.setProperty("--" + k, v[k], "important");
         root.style.colorScheme = state.mode;
+        // neutralize style.css theme selectors just in case
+        root.removeAttribute("data-theme");
         document.querySelectorAll("[data-pal]").forEach(function (b) {
           b.classList.toggle("active", b.dataset.pal === state.pal);
         });
