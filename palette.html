@@ -192,10 +192,14 @@
 
       function apply() {
         var v = P[state.pal][state.mode];
-        // use !important so these win over style.css :root[data-theme]/@media rules
-        for (var k in v) root.style.setProperty("--" + k, v[k], "important");
-        root.style.colorScheme = state.mode;
-        // neutralize style.css theme selectors just in case
+        // Inject as a high-priority <style> targeting :root so it beats
+        // style.css :root[data-theme] / @media rules regardless of cascade.
+        var decl = Object.keys(v).map(function (k) {
+          return "--" + k + ":" + v[k] + " !important";
+        }).join(";");
+        var tag = document.getElementById("palette-vars");
+        if (!tag) { tag = document.createElement("style"); tag.id = "palette-vars"; document.head.appendChild(tag); }
+        tag.textContent = ":root{" + decl + ";color-scheme:" + state.mode + ";}";
         root.removeAttribute("data-theme");
         document.querySelectorAll("[data-pal]").forEach(function (b) {
           b.classList.toggle("active", b.dataset.pal === state.pal);
