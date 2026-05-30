@@ -162,7 +162,6 @@ a:hover { text-decoration: underline; }
 
 /* ===== Bio ===== */
 .hero-bio {
-  max-width: 68ch;
   margin-bottom: 64px;
 }
 .hero-bio p {
