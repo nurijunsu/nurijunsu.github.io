@@ -200,12 +200,10 @@ a:hover { text-decoration: underline; }
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid var(--surface-border);
   border-radius: 8px;
   overflow: hidden;
-  background: var(--surface);
   aspect-ratio: 16 / 10;
-  transition: box-shadow 0.18s ease, transform 0.18s ease;
+  transition: transform 0.18s ease;
 }
 .entry-thumb:hover {
   box-shadow: 0 6px 22px var(--thumb-shadow);
