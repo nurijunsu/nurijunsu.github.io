@@ -298,14 +298,22 @@ a:hover { text-decoration: underline; }
   font-size: 15px;
   letter-spacing: 0.01em;
   transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.15s ease;
-  box-shadow: 0 2px 10px rgba(37, 99, 217, 0.25);
+  box-shadow: 0 2px 10px rgba(40, 70, 45, 0.22);
 }
 .cta-button:hover {
   text-decoration: none;
   transform: translateY(-1px);
-  box-shadow: 0 5px 16px rgba(37, 99, 217, 0.32);
+  box-shadow: 0 5px 16px rgba(40, 70, 45, 0.3);
   opacity: 0.96;
 }
+
+/* ===== Guestbook (giscus) ===== */
+.guestbook-lead {
+  margin: 44px 0 16px;
+  color: var(--ink-soft);
+  max-width: 60ch;
+}
+.giscus { margin-top: 8px; }
 
 /* ===== Footer ===== */
 .foot {
