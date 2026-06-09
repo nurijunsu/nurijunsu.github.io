@@ -284,10 +284,9 @@ a:hover { text-decoration: underline; }
   font-size: 14px;
   color: var(--ink-soft);
 }
-/* highlight an Oral / award distinction */
+/* highlight an Oral / award distinction (keeps the venue's italic) */
 .oral {
   font-weight: 700;
-  font-style: normal;
   color: var(--oral);
 }
 
