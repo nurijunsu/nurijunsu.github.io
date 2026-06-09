@@ -12,6 +12,7 @@
   --surface-border: #dfe4d8;
   --thumb-shadow: rgba(30, 40, 25, 0.10);
   --x-icon-invert: 0;
+  --oral: #1f6b3a;            /* deep green for Oral/award highlight */
   --max: 860px;
   color-scheme: light;
 }
@@ -30,6 +31,7 @@
     --surface-border: #363a32;
     --thumb-shadow: rgba(0, 0, 0, 0.45);
     --x-icon-invert: 1;
+    --oral: #5fc27e;
     color-scheme: dark;
   }
 }
@@ -47,6 +49,7 @@
   --surface-border: #363a32;
   --thumb-shadow: rgba(0, 0, 0, 0.45);
   --x-icon-invert: 1;
+  --oral: #5fc27e;
   color-scheme: dark;
 }
 
@@ -63,6 +66,7 @@
   --surface-border: #dfe4d8;
   --thumb-shadow: rgba(30, 40, 25, 0.10);
   --x-icon-invert: 0;
+  --oral: #1f6b3a;
   color-scheme: light;
 }
 
@@ -279,6 +283,12 @@ a:hover { text-decoration: underline; }
   margin: 0;
   font-size: 14px;
   color: var(--ink-soft);
+}
+/* highlight an Oral / award distinction */
+.oral {
+  font-weight: 700;
+  font-style: normal;
+  color: var(--oral);
 }
 
 /* ===== Call to action (replaces calendar embed) ===== */
