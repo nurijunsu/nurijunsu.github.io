@@ -316,14 +316,6 @@ a:hover { text-decoration: underline; }
   opacity: 0.96;
 }
 
-/* ===== Guestbook (giscus) ===== */
-.guestbook-lead {
-  margin: 44px 0 16px;
-  color: var(--ink-soft);
-  max-width: 60ch;
-}
-.giscus { margin-top: 8px; }
-
 /* ===== Footer ===== */
 .foot {
   padding-top: 24px;

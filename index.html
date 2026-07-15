@@ -168,9 +168,6 @@
     <p class="cta-lead">I keep a daily slot open for a 30-minute chat with anyone, whether about research, the path here, or just to say hello.</p>
     <a class="cta-button" href="https://calendar.app.google/MURw5SbovvHUBgmH6" target="_blank" rel="noopener">Book a 30-minute chat &#8594;</a>
 
-    <p class="guestbook-lead">Not up for a call? Feel free to leave any comment below! I try to read all of them.</p>
-    <div class="giscus"></div>
-
     <footer class="foot">
       <span>Junsu Kim · Seoul, South Korea</span>
     </footer>
@@ -186,45 +183,11 @@
         if (attr) return attr;
         return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
       }
-      function giscusTheme() {
-        return current() === "dark" ? "dark_dimmed" : "light";
-      }
-      function sendGiscusTheme() {
-        var f = document.querySelector("iframe.giscus-frame");
-        if (!f) return;
-        f.contentWindow.postMessage(
-          { giscus: { setConfig: { theme: giscusTheme() } } },
-          "https://giscus.app"
-        );
-      }
       btn.addEventListener("click", function () {
         var next = current() === "dark" ? "light" : "dark";
         root.setAttribute("data-theme", next);
         try { localStorage.setItem("theme", next); } catch (e) {}
-        sendGiscusTheme();
       });
-
-      // Load giscus with the theme that matches the page right now.
-      (function loadGiscus() {
-        var s = document.createElement("script");
-        s.src = "https://giscus.app/client.js";
-        s.setAttribute("data-repo", "nurijunsu/nurijunsu.github.io");
-        s.setAttribute("data-repo-id", "R_kgDOSr6DtQ");
-        s.setAttribute("data-category", "Announcements");
-        s.setAttribute("data-category-id", "DIC_kwDOSr6Dtc4C-sqy");
-        s.setAttribute("data-mapping", "specific");
-        s.setAttribute("data-term", "guestbook");
-        s.setAttribute("data-strict", "0");
-        s.setAttribute("data-reactions-enabled", "1");
-        s.setAttribute("data-emit-metadata", "0");
-        s.setAttribute("data-input-position", "top");
-        s.setAttribute("data-theme", giscusTheme());
-        s.setAttribute("data-lang", "en");
-        s.setAttribute("data-loading", "lazy");
-        s.crossOrigin = "anonymous";
-        s.async = true;
-        document.querySelector(".giscus").appendChild(s);
-      })();
 
       // Author lists: show INITIALS by default, clamped to 2 lines (so it
       // stays short while the full set of names is still represented). Junsu's
