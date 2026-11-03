@@ -3,7 +3,7 @@
   --ink: #272a25;            /* primary text */
   --ink-soft: #565a51;       /* secondary text — AA on bg */
   --muted: #828777;          /* tertiary — AA-compliant small text */
-  --link: #3a7d52;           /* accent (sage green) */
+  --link: #111111;
   --btn: #3a7d52;            /* CTA button bg — AA with white text */
   --sans: "Inter", ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
   --rule: #e3e7dd;
@@ -23,7 +23,7 @@
     --ink: #e6e8e1;
     --ink-soft: #aeb2a7;
     --muted: #878b7f;
-    --link: #86c79b;
+    --link: #f2f3ef;
     --btn: #4f9469;
     --rule: #2c2f29;
     --bg: #181a17;
@@ -41,7 +41,7 @@
   --ink: #e6e8e1;
   --ink-soft: #aeb2a7;
   --muted: #878b7f;
-  --link: #86c79b;
+  --link: #f2f3ef;
   --btn: #4f9469;
   --rule: #2c2f29;
   --bg: #181a17;
@@ -58,7 +58,7 @@
   --ink: #272a25;
   --ink-soft: #565a51;
   --muted: #828777;
-  --link: #3a7d52;
+  --link: #111111;
   --btn: #3a7d52;
   --rule: #e3e7dd;
   --bg: #ffffff;
@@ -94,6 +94,8 @@ body {
 
 a { color: var(--link); text-decoration: none; }
 a:hover { text-decoration: underline; }
+.hero-bio a { text-decoration: underline; text-decoration-color: var(--muted); text-underline-offset: 3px; }
+.hero-bio a:hover { text-decoration-color: currentColor; }
 
 /* ===== Profile links (chips, top-right of hero) ===== */
 .toplinks {
@@ -248,7 +250,7 @@ a:hover { text-decoration: underline; }
   line-height: 1.5;
   margin-bottom: 8px;
 }
-.entry-title:hover { color: var(--link); text-decoration: none; }
+.entry-title:hover { color: var(--link); text-decoration: underline; }
 .entry-authors {
   margin: 0 0 6px;
   font-size: 14px;
