@@ -7,7 +7,7 @@
   --btn: #3a7d52;            /* CTA button bg — AA with white text */
   --sans: "Inter", ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
   --rule: #e3e7dd;
-  --bg: #f7f8f5;             /* faint green-tinted off-white (sage) */
+  --bg: #ffffff;
   --surface: #eef1ea;        /* cards / thumbnails / toggle */
   --surface-border: #dfe4d8;
   --thumb-shadow: rgba(30, 40, 25, 0.10);
@@ -61,7 +61,7 @@
   --link: #3a7d52;
   --btn: #3a7d52;
   --rule: #e3e7dd;
-  --bg: #f7f8f5;
+  --bg: #ffffff;
   --surface: #eef1ea;
   --surface-border: #dfe4d8;
   --thumb-shadow: rgba(30, 40, 25, 0.10);
